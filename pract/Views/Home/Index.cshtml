@@ -1,0 +1,46 @@
+﻿@model pract.Models.PacienteModel
+
+@{
+    ViewBag.Title = "Creación de paciente";
+}
+
+@using (@Html.BeginForm())
+{
+    <div class="container row">
+        <div class="form-group col-md-4">
+            @Html.LabelFor(m => m.Nombre, new { })
+            <div>
+                @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control col-md-8" })
+            </div>
+        </div>
+    </div>
+
+    <div class="container row">
+        <div class="form-group col-md-4">
+            @Html.LabelFor(m => m.Enfermedades, new { })
+            <div>
+                @Html.ListBoxFor(m => m.EnfermedadesId, Model.EnfermedadesSelect, new { @class = "form-control col-md-8 selectpicker" })
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" name="name" value="Confirmar" />
+    </div>
+
+}
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+
+<script>
+    $(document).ready()
+    {
+        $(".selectpicker").selectpicker();
+    }
+</script>
